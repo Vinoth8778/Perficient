@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+        maven 'maven'
+        jdk 'java'
+    }
 
     stages {
         stage('Clean-workspace') {
@@ -16,8 +20,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
-                rtMavenRun (
+                    rtMavenRun (
                     pom: 'pom.xml', goals: 'clean install'
                 )
             }
