@@ -2,14 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Clean-workspace') {
             steps {
-                echo 'Building..'
+                cleanWs()
             }
         }
-        stage('Test') {
+        stage('src-checkout') {
             steps {
-                echo 'Testing..'
+                git branch: 'master',
+                //credentialsId: '12345-1234-4696-af25-123455',
+                url: 'https://github.com/Vinoth8778/Perficient.git'
             }
         }
         stage('Deploy') {
