@@ -17,9 +17,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                rtMaven {
+                rtMavenRun (
                     pom: 'pom.xml', goals: 'clean install'
-                }
+                )
             }
         }
     }
