@@ -17,6 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                pom: 'pom.xml', goals: 'clean install'
             }
         }
     }
