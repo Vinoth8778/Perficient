@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                    sh 'mvn clean install'
+                    cmd 'mvn clean install'
                     /* rtMavenRun (
                     pom: 'pom.xml', goals: 'clean install'
                 ) */
