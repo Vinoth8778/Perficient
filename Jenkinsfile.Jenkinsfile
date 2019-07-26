@@ -76,17 +76,7 @@ pipeline {
                       )
                  }
             } 
-                                        /* rtUpload (
-                        serverId: "Artifactory-1",
-                        spec:
-                        {
-                          "files": [
-                            {
-                              "pattern": "bazinga/*froggy*.zip",
-                              "target": "bazinga-repo/froggy-files/"
-                            }
-                         ]
-                        } 
-)                     
+                                        
+                                        
                    }
     }
