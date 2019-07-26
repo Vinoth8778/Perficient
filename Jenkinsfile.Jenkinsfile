@@ -48,17 +48,17 @@ pipeline {
                         //The default value (if not configured) is 300 seconds:
                         //timeout = 300
                        )
-                     rtMavenRun (
-                        pom: 'pom.xml', goals: 'clean install',
-                        deployerId: 'deployer'
-                    )
-                     rtMavenDeployer (
+                      rtMavenDeployer (
                         id: 'deployer',
                         serverId: 'Artifactory-1',
                         releaseRepo: 'libs-release-local',
                         snapshotRepo: 'libs-snapshot-local'
                         )
-                    /* rtUpload (
+                     rtMavenRun (
+                        pom: 'pom.xml', goals: 'clean install',
+                        deployerId: 'deployer'
+                      )
+                                        /* rtUpload (
                         serverId: "Artifactory-1",
                         spec:
                         {
