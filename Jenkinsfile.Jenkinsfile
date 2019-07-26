@@ -55,7 +55,7 @@ pipeline {
                         snapshotRepo: "maven-snapshot-local"
                         )
                      rtMavenRun (
-                        pom: "pom.xml", goals: "clean install",
+                        pom: 'pom.xml', goals: 'clean install',
                         deployerId: "deployer"
                       )
                                         /* rtUpload (
