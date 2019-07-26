@@ -32,8 +32,7 @@ pipeline {
                      snapshotRepo: 'libs-snapshot-local'
                     )
             } */
-        }
-        stage('Jfrog-Artifactory') {
+            stage('Jfrog-Artifactory') {
             steps {
                    rtServer (
                        id: "Artifactory-1",
@@ -73,3 +72,4 @@ pipeline {
 )*/                     }
                    }
     }
+}
