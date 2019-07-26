@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            customWorkspace 'D:\Sample'
+            customWorkspace "D:\Sample"
         }
     }
              tools {
