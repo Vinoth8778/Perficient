@@ -18,9 +18,9 @@ pipeline {
                 url: 'https://github.com/Vinoth8778/Perficient.git'
             }
         }
-        stage('Deploy') {
+        /* stage('Deploy') {
             steps {
-                    bat 'mvn clean install'
+                    //bat 'mvn clean install'
                     /* rtMavenRun (
                      pom: 'pom.xml', goals: 'clean install',
                      deployerId: 'deployer-unique-id'
@@ -30,10 +30,10 @@ pipeline {
                      serverId: 'Artifactory-1',
                      releaseRepo: 'libs-release-local',
                      snapshotRepo: 'libs-snapshot-local'
-                    ) */
+                    ) 
             } 
-        }
-            /* stage('Jfrog-server') {
+        } */
+             stage('Jfrog-server') {
             steps {
                    rtServer (
                        id: "Artifactory-1",
@@ -75,7 +75,7 @@ pipeline {
                         serverId: "Artifactory-1"
                       )
                  }
-            } */
+            } 
                                         /* rtUpload (
                         serverId: "Artifactory-1",
                         spec:
@@ -87,6 +87,6 @@ pipeline {
                             }
                          ]
                         } 
-)*/                     
+)                     
                    }
     }
