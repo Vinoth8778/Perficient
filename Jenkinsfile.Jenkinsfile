@@ -1,6 +1,10 @@
 pipeline {
-    agent any
-    tools {
+    agent {
+        node{
+            customWorkspace '/some/other/path'
+        }
+    }
+             tools {
         maven 'maven'
         jdk 'java'
     }
