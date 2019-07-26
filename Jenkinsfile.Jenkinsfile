@@ -50,10 +50,10 @@ pipeline {
                        )
                      rtMavenRun (
                         pom: 'pom.xml', goals: 'clean install',
-                        deployerId: 'deployer-unique-id'
+                        deployerId: 'deployer'
                     )
                      rtMavenDeployer (
-                        id: 'deployer-unique-id',
+                        id: 'deployer',
                         serverId: 'Artifactory-1',
                         releaseRepo: 'libs-release-local',
                         snapshotRepo: 'libs-snapshot-local'
