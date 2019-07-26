@@ -1,7 +1,9 @@
 pipeline {
     agent {
         node {
-            customWorkspace "D:\Sample"
+            ws("D:\Jenkins") {
+                echo "awesome commands here instead of echo"
+            }
         }
     }
              tools {
