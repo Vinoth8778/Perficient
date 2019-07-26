@@ -58,6 +58,9 @@ pipeline {
                         pom: 'pom.xml', goals: 'clean install',
                         deployerId: "deployer"
                       )
+                    rtPublishBuildInfo (
+                        serverId: "Artifactory-1"
+                      )
                                         /* rtUpload (
                         serverId: "Artifactory-1",
                         spec:
