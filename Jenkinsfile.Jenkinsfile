@@ -49,14 +49,14 @@ pipeline {
                         //timeout = 300
                        )
                       rtMavenDeployer (
-                        id: 'deployer',
-                        serverId: 'Artifactory-1',
-                        releaseRepo: 'maven-release-local',
-                        snapshotRepo: 'maven-snapshot-local'
+                        id: "deployer",
+                        serverId: "Artifactory-1",
+                        releaseRepo: "maven-release-local",
+                        snapshotRepo: "maven-snapshot-local"
                         )
                      rtMavenRun (
-                        pom: 'pom.xml', goals: 'clean install',
-                        deployerId: 'deployer'
+                        pom: "pom.xml", goals: "clean install",
+                        deployerId: "deployer"
                       )
                                         /* rtUpload (
                         serverId: "Artifactory-1",
