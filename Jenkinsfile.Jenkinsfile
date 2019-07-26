@@ -18,7 +18,7 @@ pipeline {
                 url: 'https://github.com/Vinoth8778/Perficient.git'
             }
         }
-        stage('Deploy') {
+        /* stage('Deploy') {
             steps {
                    // bat 'mvn clean install'
                     rtMavenRun (
@@ -31,7 +31,7 @@ pipeline {
                      releaseRepo: 'libs-release-local',
                      snapshotRepo: 'libs-snapshot-local'
                     )
-            }
+            } */
         }
         stage('Jfrog-Artifactory') {
             steps {
@@ -49,6 +49,16 @@ pipeline {
                         //The default value (if not configured) is 300 seconds:
                         //timeout = 300
                        )
+                     rtMavenRun (
+                        pom: 'pom.xml', goals: 'clean install',
+                        deployerId: 'deployer-unique-id'
+                    )
+                     rtMavenDeployer (
+                        id: 'deployer-unique-id',
+                        serverId: 'Artifactory-1',
+                        releaseRepo: 'libs-release-local',
+                        snapshotRepo: 'libs-snapshot-local'
+                        )
                     /* rtUpload (
                         serverId: "Artifactory-1",
                         spec:
