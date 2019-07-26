@@ -1,7 +1,7 @@
 pipeline {
     agent {
         any {
-            customworkspace 'D:/Jenkins' {
+            customworkspace "D:/Jenkins" {
                 echo "awesome commands here instead of echo"
             }
         }
