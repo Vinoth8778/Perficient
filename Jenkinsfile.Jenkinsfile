@@ -48,25 +48,32 @@ pipeline {
                         //The default value (if not configured) is 300 seconds:
                         //timeout = 300
                        )
+                }
             }
-            stage(Jfrog-Deployer) {
+                stage('Jfrog-Deployer') {
+                    steps {
                       rtMavenDeployer (
                         id: "deployer",
                         serverId: "Artifactory-1",
                         releaseRepo: "maven-release-local",
                         snapshotRepo: "maven-snapshot-local"
                         )
+                 }
             }
-            stage(Jfrog-MavenRun) {
+            stage('Jfrog-MavenRun') {
+                steps {
                      rtMavenRun (
                         pom: 'pom.xml', goals: 'clean install',
                         deployerId: "deployer"
                       )
+                }
             }
-            stage(Jfrog-Publish) {
+            stage('Jfrog-Publish') {
+                steps {
                     rtPublishBuildInfo (
                         serverId: "Artifactory-1"
                       )
+                 }
             }
                                         /* rtUpload (
                         serverId: "Artifactory-1",
