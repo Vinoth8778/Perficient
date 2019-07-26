@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        node {
+        any {
             ws("D:/Jenkins") {
                 echo "awesome commands here instead of echo"
             }
