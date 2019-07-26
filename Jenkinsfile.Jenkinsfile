@@ -32,7 +32,7 @@ pipeline {
                      snapshotRepo: 'libs-snapshot-local'
                     )
             } */
-            stage('Jfrog-Artifactory') {
+            stage('Jfrog-server') {
             steps {
                    rtServer (
                        id: "Artifactory-1",
@@ -48,19 +48,26 @@ pipeline {
                         //The default value (if not configured) is 300 seconds:
                         //timeout = 300
                        )
+            }
+            stage(Jfrog-Deployer) {
                       rtMavenDeployer (
                         id: "deployer",
                         serverId: "Artifactory-1",
                         releaseRepo: "maven-release-local",
                         snapshotRepo: "maven-snapshot-local"
                         )
+            }
+            stage(Jfrog-MavenRun) {
                      rtMavenRun (
                         pom: 'pom.xml', goals: 'clean install',
                         deployerId: "deployer"
                       )
+            }
+            stage(Jfrog-Publish) {
                     rtPublishBuildInfo (
                         serverId: "Artifactory-1"
                       )
+            }
                                         /* rtUpload (
                         serverId: "Artifactory-1",
                         spec:
