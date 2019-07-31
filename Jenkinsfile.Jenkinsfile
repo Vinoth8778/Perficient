@@ -1,17 +1,17 @@
 pipeline {
-    agent {
-        node {
-            customworkspace "D:/Jenkins" {
-                echo "awesome commands here instead of echo"
-            }
-        }
-    }
-             tools {
-        maven 'maven'
-        jdk 'java'
-    }
+    agent any
+        tools {
+            maven 'maven'
+            jdk 'java'
+         }
 
     stages {
+        stage {
+            {
+                 ws ("D:/Jenkins") 
+                 echo "awesome commands here instead of echo"
+            }
+        }
         stage('Clean-workspace') {
             steps {
                 cleanWs()
@@ -85,4 +85,5 @@ pipeline {
                                         
                                         
                    }
-    }
+    
+}
