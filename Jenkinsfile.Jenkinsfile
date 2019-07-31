@@ -7,7 +7,7 @@ pipeline {
 
     stages {
         stage {
-            {
+            steps {
                  ws ("D:/Jenkins") 
                  echo "awesome commands here instead of echo"
             }
