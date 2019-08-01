@@ -6,13 +6,13 @@ pipeline {
          }
 
     stages {
-        stage('workspace') {
+        /* stage('workspace') {
             steps {
                  ws ("D:/Jenkins") {
                  echo "awesome commands here instead of echo"
                  }
             }
-        }
+        } */
             stage('Clean-workspace') {
             steps {
                 cleanWs()
@@ -72,7 +72,7 @@ pipeline {
                 steps {
                      rtMavenRun (
                         pom: 'pom.xml', goals: 'clean install',
-                        deployerId: "deployer"
+                        //deployerId: "deployer"
                       )
                 }
             }
